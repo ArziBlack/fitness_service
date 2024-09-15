@@ -3,10 +3,10 @@ import { Signup, Login } from "../controllers/auth.controller";
 
 const router = Router();
 
-// Signup Lecturer
+// Signup user
 router.route("/signup").post(Signup);
 
-//Login Lecturer
+//Login user
 router.route("/signin").post(Login);
 
 export default router;

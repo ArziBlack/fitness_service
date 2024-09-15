@@ -4,16 +4,16 @@ import { createWorkout, editWorkout, deleteWorkout, getWorkout } from '../contro
 
 const router = Router()
 
-// Get All Courses
+// Get All workouts
 router.route("/all").get(verify, getWorkout);
 
-// Add Course
+// Add workouts
 router.route("/add").post(verify, createWorkout)
 
-// Edit Course
+// Edit workouts
 router.route("/edit/:id").put(verify, editWorkout);
 
-// Delete Course
+// Delete workouts
 router.route("/delete/:id").delete(verify, deleteWorkout);
 
 export default router

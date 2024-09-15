@@ -4,16 +4,16 @@ import { createCategory, editCategory, getCategory, deleteCategory } from '../co
 
 const router = Router()
 
-// Get All Courses
+// Get All categories
 router.route("/all").get(verify, getCategory);
 
-// Add Course
+// Add category
 router.route("/add").post(verify, createCategory)
 
-// Edit Course
+// Edit category
 router.route("/edit/:id").put(verify, editCategory);
 
-// Delete Course
+// Delete Category
 router.route("/delete/:id").delete(verify, deleteCategory)
 
 export default router
