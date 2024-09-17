@@ -25,11 +25,12 @@ export const Signup = async (req: Request, res: Response) => {
 
         const savedUser = await newUser.save();
 
-        const { password, ...info } = savedUser.toObject();
+        // this line crashes the server
+        // const { password, ...info } = savedUser.toObject();
         return res.status(201).json({
             success: true,
             message: "User created successfully",
-            user: info,
+            user: savedUser._id,
         });
     } catch (err) {
         return res.status(500).json({
