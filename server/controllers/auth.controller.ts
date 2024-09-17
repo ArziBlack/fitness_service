@@ -25,12 +25,11 @@ export const Signup = async (req: Request, res: Response) => {
 
         const savedUser = await newUser.save();
 
-        // this line crashes the server
-        // const { password, ...info } = savedUser.toObject();
+        const { password, ...info } = savedUser.toObject();
         return res.status(201).json({
             success: true,
             message: "User created successfully",
-            user: savedUser._id,
+            user: info,
         });
     } catch (err) {
         return res.status(500).json({
@@ -69,7 +68,7 @@ export const Login = async (req: Request, res: Response) => {
             { expiresIn: "7d" }
         );
 
-        const { password, ...info } = user._doc;
+        const { password, ...info } = user.toObject();
         return res.status(200).json({ ...info, token });
     } catch (err) {
         return res.status(500).json({
