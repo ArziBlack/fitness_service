@@ -69,7 +69,7 @@ export const Login = async (req: Request, res: Response) => {
             { expiresIn: "7d" }
         );
 
-        const { password, ...info } = user.toObject();
+        const { password, ...info } = user._doc;
         return res.status(200).json({ ...info, token });
     } catch (err) {
         return res.status(500).json({
