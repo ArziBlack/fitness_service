@@ -6,7 +6,7 @@ const MONGO_URI = `mongodb+srv://Blackdice:Black177@cluster0.1gxkqc6.mongodb.net
 // const MONGO_URI_ = `mongodb+srv://Blackdice:Black177@cluster0.1gxkqc6.mongodb.net/BTCPAY?retryWrites=true&w=majority`
 export const connectDB = async () => {
   try {
-    await mongoose.connect(MONGO_URI_LOCAL_DB as string);
+    await mongoose.connect(MONGO_URI as string);
     console.log(Color.underline.bgGreen(`MongoDB Database connected`));
     
   } catch (error) {
