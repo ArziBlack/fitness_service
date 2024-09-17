@@ -69,7 +69,11 @@ export const Login = async (req: Request, res: Response) => {
         );
 
         const { password, ...info } = user.toObject();
-        return res.status(200).json({ ...info, token });
+        return res.status(200).json({
+            success: true,
+            message: "User Login successfull",
+            user: { ...info, token },
+        });
     } catch (err) {
         return res.status(500).json({
             success: false,
